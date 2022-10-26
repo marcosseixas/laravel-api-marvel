@@ -3,15 +3,17 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
+use App\Services\GetTokenService;
 
-class PopulateHeroe extends Command
+class PopulateHeroes extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'marvel:get_heroes';
+    protected $signature = 'marvel:heroes';
 
     /**
      * The console command description.
@@ -27,7 +29,12 @@ class PopulateHeroe extends Command
      */
     public function handle()
     {
-        dd('hello friend.');
+        $token = new GetTokenService();
+        $token = $token->getToken();
+        dd($token);
+        $response = Http::get('http://example.com');
+
+        dd($response);
         return Command::SUCCESS;
     }
 }
