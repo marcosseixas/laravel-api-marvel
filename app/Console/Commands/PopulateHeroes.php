@@ -45,7 +45,7 @@ class PopulateHeroes extends Command
 
                 $img = $hero->thumbnail->path . '.' . $hero->thumbnail->extension;
                 $infos[] = [
-                    'id' => $hero->id,
+                    'hero_id' => $hero->id,
                     'name' => $hero->name,
                     'img' => $img
                 ];
